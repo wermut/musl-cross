@@ -31,9 +31,9 @@ fi
 BINUTILS_VERSION=2.24
 GCC_VERSION=4.8.2
 GDB_VERSION=7.4.1
-GMP_VERSION=5.1.3
+GMP_VERSION=6.0.0a
 LIBELF_VERSION=71bf774909fd654d8167a475333fa8f37fbbcb5d
-LINUX_HEADERS_VERSION=3.12.14
+LINUX_HEADERS_VERSION=3.12.16
 MPC_VERSION=1.0.2
 MPFR_VERSION=3.1.2
 
@@ -202,13 +202,13 @@ muslfetchextract() {
 gccprereqs() {
     if [ ! -e gcc-$GCC_VERSION/gmp ]
     then
-        fetchextract https://gmplib.org/download/gmp/gmp-$GMP_VERSION .tar.bz2
+        fetchextract http://mirror.switch.ch/ftp/mirror/gnu/gmp/ gmp-$GMP_VERSION .tar.bz2
         mv gmp-$GMP_VERSION gcc-$GCC_VERSION/gmp
     fi
 
     if [ ! -e gcc-$GCC_VERSION/mpfr ]
     then
-        fetchextract http://ftp.gnu.org/gnu/mpfr/ mpfr-$MPFR_VERSION .tar.bz2
+        fetchextract http://mirror.switch.ch/ftp/mirror/gnu/mpfr/ mpfr-$MPFR_VERSION .tar.bz2
         mv mpfr-$MPFR_VERSION gcc-$GCC_VERSION/mpfr
     fi
 
